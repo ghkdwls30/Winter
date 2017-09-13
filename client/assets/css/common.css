@@ -1,0 +1,28 @@
+#wrap {
+    width:  100%;
+    height: 100%;
+}
+
+.left {
+    width: 15%;
+    min-width: 240px;            
+}
+.left div {
+    background-color: red;                
+}
+
+.contents div {
+    background-color: green;
+}
+
+.logo {
+    width: 15%;
+    min-width: 240px;                
+}
+.logo div {
+    background-color: darkmagenta;                
+}
+
+.header div {
+    background-color:blue;
+}     

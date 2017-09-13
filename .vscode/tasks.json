@@ -1,0 +1,14 @@
+// Less configuration
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "Less Compile",
+            "type": "shell",
+            "command": "D:/dev/workspace/Winter/node_modules/less/bin D:/dev/workspace/Winter/client/assets/less/style.less D:/dev/workspace/Winter/client/assets/less/style.css",
+            "group": "build"
+        }
+    ]
+}

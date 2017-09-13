@@ -10,6 +10,12 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.4",
-    "angular-route" : "1.6.6"
+    "angular-route" : "1.6.6",
+    "angular-material" : "*",
+    "angular-animate" : "*",
+    "angular-aria" : "*",
+    "angular-messages" : "*",
+    "reset.css" : "*",
+    "less" : "*"
   }
 }
