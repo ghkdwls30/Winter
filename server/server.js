@@ -8,11 +8,7 @@ app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
-// 커밋테스트
+
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
-// 테스트23333333333333333333
-// 테스트
-
-// 테스트 - ㄴㅇㄻㄴㅇㄹㅇㅁㄴㄹㅇㄴㅁㄹㄹㅇㄹㅇ

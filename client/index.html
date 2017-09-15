@@ -11,17 +11,40 @@
                 
         <!-- App -->
         <script src="app/app.js"></script>
-        <script src="app/controllers/testController.js"></script>
-    
+        <script src="app/app.route.js"></script>
+        <script src="app/directives/common.directive.js"></script>
+
+        <!-- Controller -->
+        <script src="app/controllers/board.controller.js"></script>
+
+        <!-- Service -->
+        <script src="app/services/board.service.js"></script>
+        
         <!-- Style -->
         <link rel="stylesheet" href="node_modules/reset.css/reset.css">     
         <link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">     
-        <link rel="stylesheet" href="assets/css/common.css">                         
-
+        <link rel="stylesheet" href="assets/css/common.css">    
+        <link rel="stylesheet" href="assets/css/board.css">                                              
 
     </head>
-<body ng-app="root">
-    <div id="wrap" layout="column" flex="100">
+<body ng-app="root">    
+    <div id="wrap">
+        <div class="left">
+            <div class="logo"></div>
+            <div class="side">
+                <side-menu></side-menu>
+            </div>
+        </div>
+        <div class="right">
+            <div class="header"></div>
+            <div class="contents">
+                <ng-view></ng-view>       
+            </div>
+        </div>
+    </div>
+
+
+    <!--div id="wrap" layout="column" flex="100">
         <div layout="row" flex="10">      
             <div class="logo" layout="column">
                 <div flex="100"></div>                
@@ -38,7 +61,7 @@
                 <div flex="100"></div>                
             </div>    
         </div>
-    <div>        
+    <div -->        
     
 
     <!--div>
