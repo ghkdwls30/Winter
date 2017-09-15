@@ -1,0 +1,22 @@
+<common-board-header></common-board-header>
+<table id="common-board">
+    <thead>
+        <th></th>
+        <th>번호</th>
+        <th>제목</th>
+        <th>등록자</th>
+        <th>등록일</th>
+        <th>조회수</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="post in posts" ng-if="!post.hideThis">
+            <td><input type="checkbox" ng-model="post.selected" /></td>
+            <td>{{ post.id}}</td>
+            <td>{{ post.name}}</td>
+            <td>{{ post.creator.name}}</td>
+            <td>{{ post.createdat}}</td>
+            <td>{{ post.viewcount}}</td>
+        </tr>
+    </tbody>
+</table>
+

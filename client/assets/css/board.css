@@ -1,0 +1,15 @@
+#common-board {
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+}
+
+#common-board td, #common-board th{
+    border: 1px solid black;
+}
+
+#board-hader {
+    text-align: right;
+    margin-bottom: 10px;
+    
+}
