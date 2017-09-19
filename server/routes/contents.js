@@ -1,26 +1,47 @@
 var express = require('express');
-var router = express.Router();
 var bodyParser = require('body-parser');
+
+var router = express.Router();
 router.use(bodyParser.urlencoded({ extended:true }));
 
 var BoardContents = require('../models/boardsSchema');
 
 router.get('/', function(req,res){
-    // db에서 게시글 리스트 가져와서 출력
     BoardContents.find({}).sort({date:-1}).exec(function(err, data){
-       // db에서 날짜 순으로 데이터들을 가져옴
         if(err) throw err;
         res.json(data); 
     });
 });
 
+router.get("/:id", function(req, res) {
+    BoardContents.findById(req.params.id, function(err, data) {
+        if(err)   return res.status(500).send(err);
+        if(!data) return res.status(404).send({ err: "boards not found" });
+        res.json(data);
+    });  
+  });
+
 router.post('/', function(req, res){
-    // 글 작성하고 submit하게 되면 저장이 되는 부분
-    var addNewTitle = req.body.addContentSubject;
-    var addNewWriter = req.body.addContentWriter;
-    var addNewContent = req.body.addContents;
-    var addNewPasword = req.body.addContentPassword;
-    addBoard(addNewTitle, addNewWriter, addNewContent, addNewPasword);
-    res.redirect('/boards');
+    console.log(req.body.title);
+    BoardContents.create(req.body, function (err, data) {
+        if(err) return res.status(500).send(err);
+        res.end();
+    });
 });
+
+router.put("/:id", function(req, res) {
+    BoardContents.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, data) {
+        if(err) return res.status(500).send(err);
+        res.json(data);
+    });
+});
+
+router.delete("/:id", function(req, res) {
+    BoardContents.remove({ id: req.params.id }, function(err, data) {
+        if(err) return res.status(500).send(err);
+        res.json(data);
+    });
+});
+
+
 module.exports = router;

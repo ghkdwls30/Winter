@@ -26,7 +26,7 @@ app.controller('boardController',  [ '$scope', '$http', '$location', 'boardServi
      }
 
      $scope.createPost = function(){
-         // 
+         $http.post( '/board', $Formdata.fniodsn)
      }
 
 }]);
