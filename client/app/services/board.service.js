@@ -12,9 +12,9 @@ app.service('boardService', function($http) {
         });
     }
 
-    this.view = function ( id) {
+    this.find = function ( id, callback) {
         $http.get("/post/" + id).then(function (response) {
-            console.log( "view");
+            callback(response.data);            
         });
     }
 

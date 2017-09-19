@@ -13,3 +13,24 @@
     margin-bottom: 10px;
     
 }
+
+#board-view, #board-edit {
+  margin: 20px;
+}
+
+.item-row {
+  margin-bottom: 10px;
+}
+
+.item-row .field {
+    width: 100px;
+}
+
+.item-row .value {
+    padding-left: 20px;
+    width: 100%;
+}
+
+.item-row .value input {
+    width: 100%;
+}

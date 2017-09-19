@@ -1,0 +1,27 @@
+<div id="board-view" layout="column">    
+    <div class="item-row" layout="row">
+        <div class="field" flex="none" style="width: 200px;"> 게시글번호 </div>
+        <div class="value" flex="95"> {{ post.id}} </div>
+    </div>
+    <div class="item-row" layout="row">
+        <div class="field" flex="none" style="width: 200px;"> 제목 </div>
+        <div class="value" flex="95">  {{ post.name}} </div>
+    </div>
+    <div class="item-row" layout="row">
+        <div class="field" flex="none" style="width: 200px;"> 등록자 </div>
+        <div class="value" flex="95">  {{ post.creator.name}} </div>
+    </div>
+    <div class="item-row" layout="row">
+        <div class="field" flex="none" style="width: 200px;"> 등록일 </div>
+        <div class="value" flex="95"> {{ post.createdat  }} </div>
+    </div>
+    <div class="item-row" layout="row">
+        <div class="field" flex="none" style="width: 200px;"> 조회수 </div>
+        <div class="value" flex="95"> {{ post.viewcount}} </div>
+    </div>
+    <div class="item-row" layout="row">
+        <div class="field" flex="none" style="width: 200px;"> 제목 </div>
+        <div class="value" flex="95"> {{ post.contents}} </div>
+    </div>
+</div>
+
