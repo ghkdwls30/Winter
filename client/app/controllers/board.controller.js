@@ -28,7 +28,6 @@ app.controller('boardController',  [ '$scope', '$http', '$location', 'boardServi
      $scope.createPost = function(){
          // 
      }
-
 }]);
 
 app.controller('boardViewController',  [ '$scope', '$routeParams', 'boardService', function( $scope, $routeParams, boardService) {
@@ -60,7 +59,7 @@ app.controller('boardViewController',  [ '$scope', '$routeParams', 'boardService
     //     $scope.post = data;     
     // } 
 
-    //boardService.find( id);    
+    //boardService.find( id, callback);    
 
 }]);
     
