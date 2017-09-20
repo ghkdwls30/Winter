@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 
 var router = express.Router();
 router.use(bodyParser.urlencoded({ extended:true }));
+router.use(bodyParser.json());
 
 var BoardContents = require('../models/boardsSchema');
 
@@ -22,7 +23,7 @@ router.get("/:id", function(req, res) {
   });
 
 router.post('/', function(req, res){
-    console.log(req.body.title);
+    console.log(req.body);
     BoardContents.create(req.body, function (err, data) {
         if(err) return res.status(500).send(err);
         res.end();
