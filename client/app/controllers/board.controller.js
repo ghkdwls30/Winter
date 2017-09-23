@@ -26,12 +26,16 @@ app.controller('boardController',  [ '$scope', '$http', '$location', 'boardServi
      }
 
      $scope.createPost = function(){
+<<<<<<< HEAD
          
          var dataObj = {
             title : $scope.title,            
         };	
 
         $http.post( '/boards', dataObj);
+=======
+         $http.post( '/boards', $scope.formData);
+>>>>>>> 93e72d7ec16d996e5b1d656e426423b32fe196f8
      }
 }]);
 
