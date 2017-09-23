@@ -12,7 +12,7 @@
         <tr ng-repeat="post in posts" ng-if="!post.hideThis">
             <td><input type="checkbox" ng-model="post.selected" /></td>            
             <td>{{ post.id}}</td>
-            <td><a href="#/board/view/{{ post.id}}">{{ post.name}}</a> </td>
+            <td><a href="#/board/view/{{ post.id}}">{{ post.title}}</a> </td>
             <td>{{ post.creator.name}}</td>
             <td>{{ post.createdat}}</td>
             <td>{{ post.viewcount}}</td>
