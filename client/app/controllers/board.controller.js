@@ -1,6 +1,6 @@
 app.controller('boardController',  [ '$scope', '$http', '$location', 'boardService', function( $scope, $http, $location, boardService) {
 
-     $http.get("json/posts.json").then(function(response) {
+     $http.get("/boards").then(function(response) {
         $scope.posts = response.data;
      });
 
@@ -26,7 +26,13 @@ app.controller('boardController',  [ '$scope', '$http', '$location', 'boardServi
      }
 
      $scope.createPost = function(){
-         $http.post( '/boards', $scope.formData);
+
+         $http.post( '/boards', $scope.post);
+
+         
+         var dataObj = {
+            title : $scope.title,            
+        };	
      }
 }]);
 
