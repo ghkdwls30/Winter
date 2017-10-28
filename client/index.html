@@ -24,25 +24,76 @@
     </head>
 <body>    
 
-    <div id="container">Loading...</div>
-    
+    <div id="container"></div>
+    <a href="#index">라우팅!</a>
+        
+    <script id="rideTemplate" type="text/template">
+        <img src="<%= coverImage %>" />
+        <ul>
+            <li><%= object_or_array %></li>
+            <li><%= empty %></li>
+            <li><%= parse_time_nanoseconds %></li>
+            <li><%= validate %></li>
+            <li><%= size %></li>
+        </ul>        
+    </script>
 
     <script type="text/javascript">
+
+        var AppRouter = Backbone.Router.extend({
+            routes: {
+                "index": "index",
+                index: function(){
+                    var _model = new Model();
+                    _model.fetch({
+                        success: function (data) {
+                            var view = new AppView({
+                                model : _model
+                            });
+                        }
+                    });
+                }
+
+            }
+        });
+
+        var Model = Backbone.Model.extend({
+            urlRoot : "http://validate.jsontest.com/?json=%5BJSON-code-to-validate%5D",
+            defaults:{
+                coverImage:"http://img2.sbs.co.kr/img/sbs_cms/CH/2017/04/14/CH14380055_w666_h968.PNG",
+            }
+        });
+
         var AppView = Backbone.View.extend({
-          // el - stands for element. Every view has an element associated with HTML content, will be rendered.
-          el: '#container',
-          // It's the first function called when this view is instantiated.
+          el: '#container', 
           initialize: function(){
             this.render();
           },
-          // $el - it's a cached jQuery object (el), in which you can use jQuery functions to push content. Like the Hello TutorialsPoint in this case.
+          template:$("#rideTemplate").html(),
           render: function(){
-            this.$el.html("Hello TutorialsPoint!!!");
-          }
+            var tmpl = _.template(this.template); 
+            this.$el.html(tmpl(this.model.toJSON()));         
+          },
+          events: {
+            'click li' : 'showAlert'
+
+          },
+          showAlert: function(){
+		    alert("You clicked me");
+    	  }
         });
+
+
+        // Instantiate the router
+
+        var app_router = new AppRouter;
+        Backbone.history.start();
     
-        var appView = new AppView();
+
+
     </script>
+
+    
 
 </body> 
 </html>
