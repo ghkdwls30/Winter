@@ -1,12 +1,7 @@
 var express = require('express');
 var app = express();
-//var router = express.Router();
-//var BoardContents = require('./models/boardsSchema');
-var mongoose = require('mongoose'); 
 
 var mysql = require('mysql');
-global.yhbatis = require('yhbatis').yhbatis;
- 
 global.pool = mysql.createPool({
     host    :'localhost',
     port : 3306,
@@ -18,35 +13,20 @@ global.pool = mysql.createPool({
     multipleStatements: true
 });
  
-yhbatis.createYHBatis(
-[
-    "d:/node/workspace/Winter/server/sql.xml"
-]);
- 
+var mybatis = require('mybatisnodejs');
 
-//app.use(express.static('client'));
-//app.use('/node_modules', express.static('node_modules'));
+app.use(mybatis.Contexto.domainMiddleware);
+app.use(mybatis.Contexto.middlewareOnError);
 
-app.get('/', function (req, res) {
-  var mapping = {};
-  mapping.account = 'admin';
-  var result = yhbatis.sqlSection("selectUser",mapping,function(row, callback){
-     console.log(row);
-  });
-  res.send('Hello World!');
+var dir_xml = 'c:/node/workspace/WINTER/server/sql/';
+
+var sessionFactory  = new mybatis.Principal().processe(dir_xml);
+global.sessionFactory = sessionFactory;
+
+sessionFactory.selecioneUm('query_question.selectUser', {id: 1}, pool, function(user) {
+  //console.log(user);
 });
 
-// npm install mongoose --save
-// npm install body-parser --save
-//mongoose.connect('mongodb://localhost/boards');
-//var db =mongoose.connection;
-//db.on('error', console.error.bind(console, 'connection error:'));
-//db.once('open', function() {
-//  console.log("connected");
-//});
-
-//var boards = require('./routes/contents');
-//app.use('/boards', boards);
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
