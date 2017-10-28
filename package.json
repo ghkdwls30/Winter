@@ -8,7 +8,7 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {    
     "jquery" : "*",
     "underscore" : "*",
     "backbone" : "*",
@@ -19,6 +19,8 @@
     "reset.css": "*",
     "mysql": "*",
     "sax": "*",
-    "yhbatis": "*"
+    "yhbatis": "*",
+    "mybatisnodejs" : "*",
+    "domain" : "*"
   }
 }
