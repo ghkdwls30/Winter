@@ -21,6 +21,7 @@ var dir_xml = 'c:/node/workspace/WINTER/server/sql/'
 var sessionFactory  = new mybatis.Principal().processe(dir_xml);
 global.sessionFactory = sessionFactory;
 
-sessionFactory.selecioneUm('query_question.selectuser', {id: 1}, pool, function(user) {
-    //console.log(user);
- });
+
+var aa = sessionFactory.getSQL('query_question.selectuser', {name : 1});
+
+console.log(aa);
